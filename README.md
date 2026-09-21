@@ -27,17 +27,22 @@ Every link below was resolved from its original source tweet/thread and verified
 - [typesafe.ai/Jev](https://typesafe.ai/Jev) - Product page for Jev.
 - [Launch announcement](https://x.com/CompleteSkeptic/status/2099925682726002904) - Diogo Almeida (co-inventor of RLHF and InstructGPT at OpenAI) introduces Jev: a "System 1" model claimed to be 20-200x faster and 40-400x cheaper than generative frontier models for decision-shaped tasks. 32K context window; no image/audio input; cannot write code or prose by design.
 - [typesafe-ai/skills](https://github.com/typesafe-ai/skills) - Official agent skills for building with the System One API. Install via `npx skills add typesafe-ai/skills --skill typesafe-ai`, or as a Claude Code plugin with `claude plugin marketplace add typesafe-ai/skills`.
+- [typesafe.ai/blog/introducing-system-one-models-and-jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev) - TypeSafe's own announcement post for System One models and Jev.
+- [docs.typesafe.ai](https://docs.typesafe.ai/introduction) - Official API docs for the System One / Jev endpoint.
 
 ## Open-Source Reproductions & Clones
 
 - [bespokelabsai/nimble](https://github.com/bespokelabsai/nimble) - "Bespoke Nimble": a 9B open reproduction on Qwen3.5, built in a day from 2,676 examples via LoRA. Trained with "contrastive data curation" (near-identical question pairs with one flipped fact) to teach evidence-reading over explanation-generation. Scored 90.12% vs. Jev's 93.21% on the team's own eval.
+- [convaiinnovations/laya](https://huggingface.co/convaiinnovations/laya) - Laya, the base Apache-2.0 Jev alternative later ported to Apple Silicon as laya-mlx below.
 - [mizorewww/laya-mlx](https://github.com/mizorewww/laya-mlx) - Laya (an Apache-2.0 Jev alternative) ported to Apple Silicon via MLX: 60 decisions/sec at under 1GB RAM, demoed playing Snake from raw probability classification.
 - [Heman10x-NGU/Verdict-open-jev](https://github.com/Heman10x-NGU/Verdict-open-jev) - "Verdict": a 151M-parameter ModernBERT + GLiClass head model returning calibrated probabilities and an explicit "insufficient evidence" outcome in one forward pass. Weights on [Hugging Face](https://huggingface.co/heman10x/rlcd-modernbert-151m).
+- [Heman10x-NGU/openJev-verdict-2.0](https://github.com/Heman10x-NGU/openJev-verdict-2.0) - v1.4 inference-engine fixes for the 151M Verdict model (calibrator auto-loading, NLI-style candidate templating, a 512-token context cap) that raised its public JevBench score from 66.2 to 74.9, plus a newer "Verdict 2.0" architecture and an in-browser WebGPU engine.
 - [jaredpalmer/kev](https://github.com/jaredpalmer/kev) - A tiny Jev-like model built on Qwen2.5-0.5B, trainable and runnable locally on a MacBook.
 - [TianyuCodings/NanoJev](https://github.com/TianyuCodings/NanoJev) - Independent implementation: a Qwen3-0.6B parallel judgment model with public weights and training code.
 - [ekzhang/openjev-sglang](https://github.com/ekzhang/openjev-sglang) - A Jev-compatible API endpoint built on open models via SGLang (prefill-only), for self-hosting on GPU servers.
 - [TheoLeeCJ/SemIf](https://github.com/TheoLeeCJ/SemIf) - "Semantic ifs" from open models running on a single 3090 at home. Independent research, not affiliated with Jev/TypeSafe.
 - [vinnylarouge/jevlike](https://github.com/vinnylarouge/jevlike) - Independent research evaluating mixed-length candidate sets as a Jev-style research baseline, not a drop-in clone.
+- [vllm-project/vllm#57250](https://github.com/vllm-project/vllm/pull/57250) - A vLLM patch exposing Google's DiffusionGemma (26B MoE, 3.8B active) behind a Jev-compatible `/v1/systemone` endpoint, using parallel denoising instead of autoregressive generation and adding image input, which Jev lacks.
 
 ## Coding Agents & Dev Tools
 
@@ -69,6 +74,8 @@ Every link below was resolved from its original source tweet/thread and verified
 - [realZachi/pg-jev](https://github.com/realZachi/pg-jev) - A PostgreSQL extension for filtering, classifying, and sorting rows with natural language — no vector DB required.
 - [superagents-lab/jev-search](https://github.com/superagents-lab/jev-search) - Web search built on Jev for source selection, query understanding, and relevance ranking.
 - [jexp/neo4jev](https://github.com/jexp/neo4jev) - Traverses a Neo4j graph by having Jev classify which neighboring relationship to follow next.
+- [jerryjliu/docjev](https://github.com/jerryjliu/docjev) - OSS library that uses Jev plus LiteParse (and optional LlamaParse OCR) to classify documents and split multi-document packets by natural-language category rules; ~6x faster than GPT-5.6-luna at equivalent accuracy.
+- [pinecone-io/using-typesafe-and-pinecone](https://github.com/pinecone-io/using-typesafe-and-pinecone) - Pinecone's reference integration reranking retrieved candidates against natural-language criteria with Jev instead of a long-context LLM call; ~5x faster and ~43x cheaper than Claude Opus 5 on the same 200-candidate rerank in their benchmark.
 
 ## Content, Media & Moderation
 
@@ -103,6 +110,13 @@ Not every valuable Jev post ships a repo. These threads carry the architectural 
 - [Alcides Ticlla — the cost/latency gap, quantified](https://x.com/AlcidesTicllaCh/status/2101465729929220490) - The same classification task: $0.013880 in 8.566s on an LLM vs. $0.000081 in 0.114s on Jev, verbatim from Jev's own numbers.
 - [てる (@rute1203d) — four domain playbooks](https://x.com/rute1203d/status/2100783005229011415) - Concrete patterns for support-ticket triage, search-result relevance, tool selection, and agent-memory gating.
 - [dani_avila7 — Jev Model Router for Claude Code](https://x.com/dani_avila7/status/2101176629745561686) - Announces the `jev-model-router` mod (see [davila7/claude-code-templates](https://github.com/davila7/claude-code-templates) above) with the reasoning behind locking the main model at session start to preserve prompt caching.
+- [sakevoid — Jev is judgment, not cognition](https://x.com/sakevoid/status/2101676640879190343) - A mental model for agent architecture: Claude/Codex handle cognition, Jev handles fast judgment calls, deterministic code enforces hard rules, and humans veto the irreversible ones.
+- [me_barnyx — 5 rules before you wire Jev in](https://x.com/me_barnyx/status/2101630380067500350) - A practical checklist — separate deciding from generating, set confidence thresholds before shipping, log confidence against real outcomes, treat vendor benchmarks skeptically — illustrated via the fast-jev-compaction context-compaction pattern.
+- [neural_avb — Jev isn't deterministic](https://x.com/neural_avb/status/2101736546391244854) - Shows identical prompts returning different output probabilities across repeated runs, and that reordering candidate choices measurably shifts them.
+- [bourneshao — the fatal flaw in Jev](https://x.com/bourneshao/status/2101802361588945073) - Jev confidently returns wrong typed verdicts on multi-step arithmetic (summing invoice line items), arguing a typed answer still needs validation.
+- [drummatick — does Jev really save the cost?](https://x.com/drummatick/status/2101714564404715872) - Benchmarks Jev against GPT-5 on the Banking77 intent-classification dataset: GPT-5 beats Jev by 3.2% accuracy at 32x the cost, plus a Jev+GPT-5 cascade test.
+- [kcp_kn — Jev as an agent-eval judge](https://x.com/kcp_kn/status/2101506638288965918) - Reports on LangChain's Deep Agents experiment where Jev matched human pass/fail labels 100% across 500 trials with up to 913x lower quality-score variance than GPT-5.6 Terra, at roughly 1/80th the cost of Claude Sonnet 4.6.
+- [reachmeviz — Laya vs. Jev, tested](https://viswakumar.com/blog/laya_system_one_model) - Hands-on comparison finding Laya's out-of-the-box zero-shot classification near-random despite matching Jev's published numbers on trained domains, concluding Jev's real moat is zero-training-overhead generalization.
 
 ## Contributing
 
