@@ -11,6 +11,7 @@ Every link below was resolved from its original source tweet/thread and verified
 - [About Jev](#about-jev)
 - [Open-Source Reproductions & Clones](#open-source-reproductions--clones)
 - [Coding Agents & Dev Tools](#coding-agents--dev-tools)
+- [SDKs, Frameworks & Platform Integrations](#sdks-frameworks--platform-integrations)
 - [Browser & Desktop Automation](#browser--desktop-automation)
 - [Data & Retrieval](#data--retrieval)
 - [Content, Media & Moderation](#content-media--moderation)
@@ -33,15 +34,22 @@ Every link below was resolved from its original source tweet/thread and verified
 ## Open-Source Reproductions & Clones
 
 - [bespokelabsai/nimble](https://github.com/bespokelabsai/nimble) - "Bespoke Nimble": a 9B open reproduction on Qwen3.5, built in a day from 2,676 examples via LoRA. Trained with "contrastive data curation" (near-identical question pairs with one flipped fact) to teach evidence-reading over explanation-generation. Scored 90.12% vs. Jev's 93.21% on the team's own eval.
-- [convaiinnovations/laya](https://huggingface.co/convaiinnovations/laya) - Laya, the base Apache-2.0 Jev alternative later ported to Apple Silicon as laya-mlx below.
+- [NandhaKishorM/laya](https://github.com/NandhaKishorM/laya) - Laya, the upstream Apache-2.0 Jev alternative: an RLCD-trained decision engine shipped as a PyPI package, later ported to Apple Silicon as laya-mlx below.
+- [convaiinnovations/laya](https://huggingface.co/convaiinnovations/laya) - Laya's model weights on Hugging Face.
 - [mizorewww/laya-mlx](https://github.com/mizorewww/laya-mlx) - Laya (an Apache-2.0 Jev alternative) ported to Apple Silicon via MLX: 60 decisions/sec at under 1GB RAM, demoed playing Snake from raw probability classification.
 - [Heman10x-NGU/Verdict-open-jev](https://github.com/Heman10x-NGU/Verdict-open-jev) - "Verdict": a 151M-parameter ModernBERT + GLiClass head model returning calibrated probabilities and an explicit "insufficient evidence" outcome in one forward pass. Weights on [Hugging Face](https://huggingface.co/heman10x/rlcd-modernbert-151m).
 - [Heman10x-NGU/openJev-verdict-2.0](https://github.com/Heman10x-NGU/openJev-verdict-2.0) - v1.4 inference-engine fixes for the 151M Verdict model (calibrator auto-loading, NLI-style candidate templating, a 512-token context cap) that raised its public JevBench score from 66.2 to 74.9, plus a newer "Verdict 2.0" architecture and an in-browser WebGPU engine.
 - [jaredpalmer/kev](https://github.com/jaredpalmer/kev) - A tiny Jev-like model built on Qwen2.5-0.5B, trainable and runnable locally on a MacBook.
 - [TianyuCodings/NanoJev](https://github.com/TianyuCodings/NanoJev) - Independent implementation: a Qwen3-0.6B parallel judgment model with public weights and training code.
+- [logan-markewich/jeff](https://github.com/logan-markewich/jeff) - A self-hosted drop-in replacement for Jev, powered by GliFormer.
+- [hr98w/jev-visual](https://github.com/hr98w/jev-visual) - An educational Jev-like visual-inference experiment on Apple Silicon, adding image input which Jev lacks.
+- [ikermoel/open-alternative-jev](https://github.com/ikermoel/open-alternative-jev) - An open-source System-One-style decision layer over any open-weights LLM, benchmarked against Jev.
+- [kshetrajna12/reflex](https://github.com/kshetrajna12/reflex) - A small open decision model on Qwen3.5 re-creating the Jev/System One API with vision input.
 - [ekzhang/openjev-sglang](https://github.com/ekzhang/openjev-sglang) - A Jev-compatible API endpoint built on open models via SGLang (prefill-only), for self-hosting on GPU servers.
+- [githubnext/localjev](https://github.com/githubnext/localjev) - A local Jev-compatible `/v1/systemone` bridge backed by DiffusionGemma.
 - [TheoLeeCJ/SemIf](https://github.com/TheoLeeCJ/SemIf) - "Semantic ifs" from open models running on a single 3090 at home. Independent research, not affiliated with Jev/TypeSafe.
 - [vinnylarouge/jevlike](https://github.com/vinnylarouge/jevlike) - Independent research evaluating mixed-length candidate sets as a Jev-style research baseline, not a drop-in clone.
+- [sabeel111/OpenSourceJev](https://github.com/sabeel111/OpenSourceJev) - Independent research and experiments on small decision models, inference optimization, and parallel sampling in the Jev style.
 - [vllm-project/vllm#57250](https://github.com/vllm-project/vllm/pull/57250) - A vLLM patch exposing Google's DiffusionGemma (26B MoE, 3.8B active) behind a Jev-compatible `/v1/systemone` endpoint, using parallel denoising instead of autoregressive generation and adding image input, which Jev lacks.
 
 ## Coding Agents & Dev Tools
@@ -60,6 +68,27 @@ Every link below was resolved from its original source tweet/thread and verified
 - [perixtar/jev-e2e](https://github.com/perixtar/jev-e2e) - Natural-language end-to-end web app tests, powered by Jev and Playwright.
 - [davila7/claude-code-templates](https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/mods/productivity) - See the `jev-model-router` and `jev-skill-suggestion` mods: per-turn model/effort routing and skill selection for Claude Code, installable with `npx claude-code-templates@latest --mod productivity/jev-model-router`.
 - [tlangridge/Alloy](https://github.com/tlangridge/Alloy) - A local, multi-model panel for Claude Code that uses Jev to route tasks by complexity, model strength, and remaining subscription quota.
+- [coldteadotai/abide](https://github.com/coldteadotai/abide) - Uses Jev to score every agent edit against project rules a linter can't express.
+- [kbhuw/jev-sift](https://github.com/kbhuw/jev-sift) - Lets an agent use Jev to decide if a file, tool call, or page is worth reading before spending LLM tokens on it.
+- [HexyeDEV/JevPR](https://github.com/HexyeDEV/JevPR) - An open-source GitHub PR review tool automated by Jev.
+- [Braedennn/OpenJev](https://github.com/Braedennn/OpenJev) - A generic agent harness that routes every step through a Jev decision, pluggable with any LLM.
+- [MagicBeansAI/jev-audit](https://github.com/MagicBeansAI/jev-audit) - Audits a codebase to find which existing LLM calls could be replaced by Jev.
+- [kushals256/jevcache](https://github.com/kushals256/jevcache) - An OpenAI-compatible caching proxy that uses Jev to detect repeated same-intent requests and skip the billed call.
+- [hqman/JevScout](https://github.com/hqman/JevScout) - A job-hunting skill: Jev finds a company's Careers pages and scores each role against a profile.
+- [stas4000/jev-clerk](https://github.com/stas4000/jev-clerk) - A bookkeeping agent where Jev makes every step decision and a separate model periodically rewrites the playbook.
+- [shantanugoel/ask-jev-skill](https://github.com/shantanugoel/ask-jev-skill) - A portable skill that lets any agent harness (demoed on Hermes) call Jev for a decision.
+- [sutro-sh/jev-align](https://github.com/sutro-sh/jev-align) - An open-source CLI to calibrate Jev to custom decision criteria using GEPA.
+- [caiovicentino/jev-align](https://github.com/caiovicentino/jev-align) - A separately built, differently-implemented calibrated alignment verifier for LLM responses/agent plans powered by Jev.
+- [sumanmichael/jevlang](https://github.com/sumanmichael/jevlang) - A Python DSL for writing Jev-backed decision workflows as a natural-language "smart if".
+- [vercel-labs/ai-cli](https://github.com/vercel-labs/ai-cli) - A terminal evaluation CLI defaulting to Jev, using its probability-weighted mean over an AI SDK schema.
+
+## SDKs, Frameworks & Platform Integrations
+
+- [danvega/jev-spring-boot-starter](https://github.com/danvega/jev-spring-boot-starter) - A Spring Boot 4 starter for Jev using RestClient and typed questions.
+- [yusukebe/hono-jev-router](https://github.com/yusukebe/hono-jev-router) - Routes HTTP requests by meaning for the Hono framework, powered by Jev.
+- [khmuhtadin/n8n-nodes-jev-classification](https://github.com/khmuhtadin/n8n-nodes-jev-classification) - An n8n community node for classifying and scoring text with Jev, with batching.
+- [vercel-labs/jev-ai-sdk-form-router](https://github.com/vercel-labs/jev-ai-sdk-form-router) - Routes form submissions to the right destination using Jev and the Vercel AI SDK.
+- [nandansrikrishna/jev-go](https://github.com/nandansrikrishna/jev-go) - A standalone Go CLI and MCP server for Jev with JSONL evaluation and resumable batches.
 
 ## Browser & Desktop Automation
 
@@ -68,6 +97,7 @@ Every link below was resolved from its original source tweet/thread and verified
 - [droidrun/mobile-jev](https://github.com/droidrun/mobile-jev) - Android automation on top of Mobilerun, driving real devices via CLI while watching screen state and logs.
 - [moritzkremb/jev-voice-browser](https://github.com/moritzkremb/jev-voice-browser) - Voice-controlled browsing: Jev resolves intent and target element in ~300ms per spoken word, Playwright acts.
 - [kitze/unclutter](https://github.com/kitze/unclutter) - A WXT browser extension that uses Jev to identify and hide ad banners/popups from the page.
+- [Sac-Y/Jev-cu](https://github.com/Sac-Y/Jev-cu) - A Codex skill where Jev picks the next UI action for computer use while a local policy gate blocks sensitive clicks.
 
 ## Data & Retrieval
 
@@ -76,20 +106,25 @@ Every link below was resolved from its original source tweet/thread and verified
 - [jexp/neo4jev](https://github.com/jexp/neo4jev) - Traverses a Neo4j graph by having Jev classify which neighboring relationship to follow next.
 - [jerryjliu/docjev](https://github.com/jerryjliu/docjev) - OSS library that uses Jev plus LiteParse (and optional LlamaParse OCR) to classify documents and split multi-document packets by natural-language category rules; ~6x faster than GPT-5.6-luna at equivalent accuracy.
 - [pinecone-io/using-typesafe-and-pinecone](https://github.com/pinecone-io/using-typesafe-and-pinecone) - Pinecone's reference integration reranking retrieved candidates against natural-language criteria with Jev instead of a long-context LLM call; ~5x faster and ~43x cheaper than Claude Opus 5 on the same 200-candidate rerank in their benchmark.
+- [mgaitan/sqlite-jev](https://github.com/mgaitan/sqlite-jev) - A loadable SQLite extension and Python wrapper for asking Jev typed questions from SQL.
 
 ## Content, Media & Moderation
 
 - [trungdq88/youtube-sponsor-detection](https://github.com/trungdq88/youtube-sponsor-detection) - Detects YouTube sponsor segments from live audio and transcript, powered by Jev.
 - [ChetasLua/jevmeter](https://github.com/ChetasLua/jevmeter) - Scores every sentence of a video against a chosen angle and renders it as a scored highlight reel.
 - [brainstormity/Jev-Moderation-Bot](https://github.com/brainstormity/Jev-Moderation-Bot) - Discord moderation for spam and phishing links.
+- [gaborishka/jev-wrapped](https://github.com/gaborishka/jev-wrapped) - Judges a Telegram channel's year of posts with Jev and renders a "wrapped" summary card.
+- [stas4000/jev-scroll](https://github.com/stas4000/jev-scroll) - A Chrome extension that labels every X/Twitter post with a Jev decision while scrolling.
 
 ## Simulation, Games & Hardware
 
 - [fhshaik/typesafe-mario](https://github.com/fhshaik/typesafe-mario) - A Jev agent that plays Super Mario Bros. by reading structured emulator state instead of screenshots.
+- [VBS2004/jev-plays-super-mario-bros](https://github.com/VBS2004/jev-plays-super-mario-bros) - A separate Jev-driven Mario agent, distinct implementation from the entry above.
 - [standardagents/jevpilot](https://github.com/standardagents/jevpilot) - A playable Three.js driving simulator with a Jev-powered autopilot.
 - [RomanSlack/jev-drone](https://github.com/RomanSlack/jev-drone) - A camera-only autonomous drone in MuJoCo, using a small Jev judgment model in the loop at 2.5Hz.
 - [AboveColin/HA-Jev](https://github.com/AboveColin/HA-Jev) - Home Assistant integration: typed Jev answers exposed as sensors, plus actions and a conversation agent for Assist.
 - [lhemerly/mcts-agent](https://github.com/lhemerly/mcts-agent) - Discriminative Monte Carlo Tree Search: Gemini plans, Jev scores and prunes the tree in milliseconds.
+- [CPPAlien/playwithjev](https://github.com/CPPAlien/playwithjev) - A playable chess game against Jev with live typed inputs and probabilities.
 - [trycua/cua](https://github.com/trycua/cua/tree/main/libs/cua-s1) - See `libs/cua-s1`: home of `cua-s1-form-v0`, a 706K-parameter, MIT-licensed specialist model that fills web forms from UI state in ~50ms.
 
 ## Finance & Trading
@@ -99,6 +134,8 @@ Every link below was resolved from its original source tweet/thread and verified
 ## Benchmarks & Evaluation
 
 - [iammrduncan/typesafe-ai-benchmark](https://github.com/iammrduncan/typesafe-ai-benchmark) - An LLM gateway that mimics TypeSafe's structured output contract, useful for benchmarking drop-in replacements against real Jev behavior.
+- [goodrahstar/jev-column-race](https://github.com/goodrahstar/jev-column-race) - Races Jev against Gemini 3.8 Flash labelling 1,000 app reviews for sentiment/topic/bug/churn.
+- [ickas/battleship-vs-jev](https://github.com/ickas/battleship-vs-jev) - A 228-test benchmark suite comparing Jev's decisions against scripted strategies at Battleship.
 
 ## Articles, Threads & Playbooks
 
@@ -117,6 +154,10 @@ Not every valuable Jev post ships a repo. These threads carry the architectural 
 - [drummatick — does Jev really save the cost?](https://x.com/drummatick/status/2101714564404715872) - Benchmarks Jev against GPT-5 on the Banking77 intent-classification dataset: GPT-5 beats Jev by 3.2% accuracy at 32x the cost, plus a Jev+GPT-5 cascade test.
 - [kcp_kn — Jev as an agent-eval judge](https://x.com/kcp_kn/status/2101506638288965918) - Reports on LangChain's Deep Agents experiment where Jev matched human pass/fail labels 100% across 500 trials with up to 913x lower quality-score variance than GPT-5.6 Terra, at roughly 1/80th the cost of Claude Sonnet 4.6.
 - [reachmeviz — Laya vs. Jev, tested](https://viswakumar.com/blog/laya_system_one_model) - Hands-on comparison finding Laya's out-of-the-box zero-shot classification near-random despite matching Jev's published numbers on trained domains, concluding Jev's real moat is zero-training-overhead generalization.
+- [NathanFlurry — "jev is just a really smart switch statement"](https://x.com/NathanFlurry/status/2100036101809619314) - A hype-free mental model: 2016-era ML classifiers with 2026-era intelligence, not a GPT/Claude replacement.
+- [whereischarly — benchmark it against encoders, not LLMs](https://x.com/whereischarly/status/2100955287200907343) - Argues the fair comparison for Jev isn't frontier LLMs but boring open-weight encoder classifiers that have done zero marketing.
+- [0xRicker — "Jev Engineering" as a control-system layer](https://x.com/0xRicker/status/2101705843200721203) - Frames state → decision → action → verification → next state as a distinct architectural layer most agent stacks are missing.
+- [miu21590 — mid-task reasoning-effort routing](https://x.com/miu21590/status/2101857866378362926) - Uses Jev to change a coding model's reasoning effort during a run rather than picking a model up front, reporting 50% lower cost.
 
 ## Contributing
 
