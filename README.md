@@ -97,6 +97,12 @@ Every link below was resolved from its original source tweet/thread and verified
 - [jackbarunz/jev-tool-router](https://github.com/jackbarunz/jev-tool-router) - Uses Jev to route among hundreds of connected MCP tools so Codex doesn't need every schema in context.
 - [fstandhartinger/chat-seek-vscode](https://github.com/fstandhartinger/chat-seek-vscode) - A VS Code extension for local search across Claude Code/Codex/OpenCode chat history, reranked with Laya.
 - [Towow-ai/jpp](https://github.com/Towow-ai/jpp) - "J++": an experimental programming language built around Jev, with its own syntax and a Rust parser/checker/interpreter for composing typed questions.
+- [fajarhide/askgrep](https://github.com/fajarhide/askgrep) - A Rust CLI for semantic codebase search: describe what you're looking for in plain English and Jev scores every function against it instead of matching keywords.
+- [tamaratran/fast-jev-compaction](https://github.com/tamaratran/fast-jev-compaction) - A Claude Code plugin that replaces the compaction summary with Jev decisions, scoring every tool call and result so stale ones are dropped or truncated while kept ones stay verbatim.
+- [fatelei/jev-compact](https://github.com/fatelei/jev-compact) - The same Jev-scored compaction pattern as the entry above, targeting the OpenAI Codex CLI instead of Claude Code.
+- [FrancoisChastel/jev-code](https://github.com/FrancoisChastel/jev-code) - Exposes Jev's classify/check/score/rank/ask primitives as a tool inside Claude Code, Codex, Pi, and OpenCode with one-command setup; an unrelated, separately-built project despite sharing a name with what devagrawal09/stanley-code above used to be called.
+- [kerpopule/hermes-jev-skills](https://github.com/kerpopule/hermes-jev-skills) - A skill suite adding Jev-based model routing, retrieval filtering, memory selection, skill choice, compaction, and computer/browser use to Hermes, Claude Code, and Codex.
+- [TheMarco/token-saver](https://github.com/TheMarco/token-saver) - Pairs Codex-to-Muse task delegation with "Jev Context," which ranks file and log excerpts by relevance before they enter the main model's context instead of dumping whole files in.
 
 ## SDKs, Frameworks & Platform Integrations
 
@@ -121,6 +127,7 @@ Every link below was resolved from its original source tweet/thread and verified
 - [chand45/JetDesk](https://github.com/chand45/JetDesk) - Native Windows desktop automation powered by Jev and Windows UI Automation.
 - [vladzima/jev-x](https://github.com/vladzima/jev-x) - A browser extension scoring X/Twitter posts on firsthand experience, promo, bait, and depth with Jev.
 - [nomanjack/smart-paste](https://github.com/nomanjack/smart-paste) - A Chrome extension that uses Jev choice/score/noul questions to match pasted text to form fields and paste only confident matches.
+- [lahfir/agent-desktop](https://github.com/lahfir/agent-desktop) - Rust-based desktop automation that reads an app's real UI through OS accessibility trees instead of screenshots, with an optional Jev skill for selecting controls and actions without loading the whole UI tree into context.
 
 ## Data & Retrieval
 
@@ -199,6 +206,12 @@ Not every valuable Jev post ships a repo. These threads carry the architectural 
 - [0x_kaize — free ways to access Jev without a waitlist](https://x.com/0x_kaize/status/2101330099802886343) - A practical, non-marketing rundown of no-waitlist Jev providers (OpenRouter, Vercel AI Gateway, Cloudflare, Netlify AI Gateway, OpenCode Zen) with a real price/context comparison.
 - [nicbstme — Jev as Innovator's Dilemma](https://x.com/nicbstme/status/2101904295730016377) - Frames Jev as commoditizing the bottom of the ML market (classifiers, routers, scoring) in a way frontier LLM labs have no incentive to compete on.
 - [ByrneHobart — cost discrimination, not price discrimination](https://x.com/ByrneHobart/status/2100233046792257801) - Frames Jev's real use as routing between deterministic rules and an expensive model per request, letting you do cost discrimination instead of flat pricing.
+- [zelin1107 — auditing Jev's own numbers](https://x.com/zelin1107/status/2101904208547258587) - A close read of the launch blog's own "Nuance" disclosures — laptop-only benchmarks, unproven cost sustainability, in-house eval design, an admittedly non-empirical hallucination chart — arguing the widely-quoted 193.6x/444.6x figures are the company's best case, not a typical one.
+- [Mahesh Lambe — four objections to the launch claims](https://x.com/Mahesh_Lambe/status/2101892492098781219) - "Can't hallucinate" only means schema-valid, not correct; the workflow eval's ground truth is the average of two LLMs' own predictions; the speed/cost multiples compare against TypeSafe's own slower wrapper rather than constrained-decoding baselines; and parallel typed outputs need consistency designed in by the developer.
+- [Kaushik009911 — the tax Jev actually removes](https://x.com/Kaushik009911/status/2101879965977571591) - Argues the relevant comparison isn't Jev vs. a BERT classifier or grammar-constrained decoding, but the KV-cache and token-by-token cost those approaches still pay; Jev collapses a closed-state decision into one parallel forward pass under 200ms.
+- [RobotsTJ500 — live-API mechanics and a code-review field test](https://x.com/RobotsTJ500/status/2101930064140968172) - Documents real measured latency (0.8-1.1s against the published 70-500ms) and field results from using Jev as a diff-triage layer, including how rephrasing a yes/no question shifted its score from 0.97 to 0.12.
+- [Chrisondesk — comment moderation, line by line](https://x.com/Chrisondesk/status/2101894289475485849) - Moderated 100 comments for $0.002171 total and breaks down why: zero output-token cost, a closed answer space with nothing to invent, and RLCD-calibrated probabilities that make fixed thresholds meaningful in a way a chat model's self-reported confidence isn't.
+- [noahkostesku — five places to put Jev in a coding-agent loop](https://x.com/noahkostesku/status/2102139134609391894) - Tool routing, context pruning, model escalation, termination checks, and test-failure triage — argues the moat is in how well a team wires decisioning into these points, not the model itself.
 
 ## Contributing
 
