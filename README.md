@@ -156,6 +156,7 @@ Every link below was resolved from its original source tweet/thread and verified
 - [RenaGao/jev-dataops](https://github.com/RenaGao/jev-dataops) - An open-source Jev-powered workbench for streaming data selection, quality eval, and automatic LoRA training/eval.
 - [seanebones-lang/evidencelens](https://github.com/seanebones-lang/evidencelens) - An open-source research build testing Jev for bounded semantic evidence review and human-review triage.
 - [sedthh/xjevboost](https://github.com/sedthh/xjevboost) - Use larger tabular datasets with Jev by learning which rows and columns to include in each call, reducing token usage through adaptive ensembles.
+- [kylemclaren/jevql](https://github.com/kylemclaren/jevql) - A psql-style CLI, MCP server, and Go/TypeScript/Python SDKs that add `jev()` predicates to queries against vanilla PostgreSQL, with no extension.
 
 ## Content, Media & Moderation
 
