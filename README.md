@@ -133,6 +133,7 @@ Every link below was resolved from its original source tweet/thread and verified
 
 - [realZachi/pg-jev](https://github.com/realZachi/pg-jev) - A PostgreSQL extension for filtering, classifying, and sorting rows with natural language — no vector DB required.
 - [superagents-lab/jev-search](https://github.com/superagents-lab/jev-search) - Web search built on Jev for source selection, query understanding, and relevance ranking.
+- [kylemclaren/jevsearch](https://github.com/kylemclaren/jevsearch) - A shadcn/ui site-search block that shows keyword hits instantly, then re-ranks the top 20 with one Jev request (a Noul per page plus a Choice over all of them), distinct from superagents-lab/jev-search.
 - [jexp/neo4jev](https://github.com/jexp/neo4jev) - Traverses a Neo4j graph by having Jev classify which neighboring relationship to follow next.
 - [jerryjliu/docjev](https://github.com/jerryjliu/docjev) - OSS library that uses Jev plus LiteParse (and optional LlamaParse OCR) to classify documents and split multi-document packets by natural-language category rules; ~6x faster than GPT-5.6-luna at equivalent accuracy.
 - [pinecone-io/using-typesafe-and-pinecone](https://github.com/pinecone-io/using-typesafe-and-pinecone) - Pinecone's reference integration reranking retrieved candidates against natural-language criteria with Jev instead of a long-context LLM call; ~5x faster and ~43x cheaper than Claude Opus 5 on the same 200-candidate rerank in their benchmark.
