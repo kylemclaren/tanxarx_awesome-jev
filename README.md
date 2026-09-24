@@ -56,6 +56,9 @@ Every link below was resolved from its original source tweet/thread and verified
 - [fidecastro/jevify](https://github.com/fidecastro/jevify) - A pip-installable adapter that serves any OpenAI-compatible LLM (including local GGUFs) as a Jev-like typed-decision endpoint.
 - [TimothyZhang7/open-decisions](https://github.com/TimothyZhang7/open-decisions) - An MIT Python SDK for typed decisions from local open models, benchmarked against Jev on an experimental Tetris demo.
 - [vllm-project/vllm#57250](https://github.com/vllm-project/vllm/pull/57250) - A vLLM patch exposing Google's DiffusionGemma (26B MoE, 3.8B active) behind a Jev-compatible `/v1/systemone` endpoint, using parallel denoising instead of autoregressive generation and adding image input, which Jev lacks.
+- [nokia-applied-research/AnyJev](https://github.com/nokia-applied-research/AnyJev) - A training-free calibration layer turning any open LLM's next-token logits into a Jev-style typed decision: zero-label recalibration cuts the answer-order-flip rate from 23% to 7.3%, and a few hundred labels bring calibration error from 0.240 to 0.095.
+- [wnzn/semif-go](https://github.com/wnzn/semif-go) - A Jev-like decision API server over local llama.cpp models, answering choice/yes-no/score questions on text or images without generating JSON; built on the scorer from TheoLeeCJ/SemIf above.
+- [Mapika/decider-2b](https://huggingface.co/Mapika/decider-2b) - An Apache-2.0 2B-parameter Jev-style decision model on Qwen3.5, with a vision variant and a GGUF quantization; over 130k combined downloads on Hugging Face.
 
 ## Coding Agents & Dev Tools
 
@@ -104,6 +107,10 @@ Every link below was resolved from its original source tweet/thread and verified
 - [kerpopule/hermes-jev-skills](https://github.com/kerpopule/hermes-jev-skills) - A skill suite adding Jev-based model routing, retrieval filtering, memory selection, skill choice, compaction, and computer/browser use to Hermes, Claude Code, and Codex.
 - [TheMarco/token-saver](https://github.com/TheMarco/token-saver) - Pairs Codex-to-Muse task delegation with "Jev Context," which ranks file and log excerpts by relevance before they enter the main model's context instead of dumping whole files in.
 - [dealerdefi/Jevmind](https://github.com/dealerdefi/Jevmind) - A dashboard running 30 tasks across 4 parallel coding agents, where every agent action is gated by 12 typed questions (is_destructive, leaks_secret, needs_approval, model_tier, diff_risk, ...) before it's allowed to proceed.
+- [danielgshea/jev-as-a-judge](https://github.com/danielgshea/jev-as-a-judge) - A LangChain/LangSmith harness using Jev as an agent-eval judge.
+- [Dicklesworthstone/skillranker](https://github.com/Dicklesworthstone/skillranker) - A Rust CLI that uses Jev to rank which agent skill to load next from live session context, with Claude Code hooks and an abstain option.
+- [Kevthetech143/super-jev](https://github.com/Kevthetech143/super-jev) - A small, extensible decision-to-action harness built on Jev.
+- [libingzheren/Jev-Mem](https://github.com/libingzheren/Jev-Mem) - Research code for "System-One-Controlled Agentic Memory": using Jev-style typed decisions to gate what an agent writes to and retrieves from memory.
 
 ## SDKs, Frameworks & Platform Integrations
 
@@ -115,6 +122,7 @@ Every link below was resolved from its original source tweet/thread and verified
 - [ainame/swift-typesafe](https://github.com/ainame/swift-typesafe) - An unofficial Swift SDK for TypeSafe's Jev API.
 - [dannote/jev](https://github.com/dannote/jev) - An Elixir/OTP client: reply to Jev from a GenServer and pattern-match on its typed answer.
 - [gilljon/typesafe-ai-rs](https://github.com/gilljon/typesafe-ai-rs) - An independent async/blocking Rust SDK for the TypeSafe System One API.
+- [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai/blob/main/docs/models/typesafe.md) - Pydantic AI's built-in TypeSafe/Jev model provider, usable as a structured-output model or as an LLM-judge evaluator.
 
 ## Browser & Desktop Automation
 
@@ -129,6 +137,7 @@ Every link below was resolved from its original source tweet/thread and verified
 - [vladzima/jev-x](https://github.com/vladzima/jev-x) - A browser extension scoring X/Twitter posts on firsthand experience, promo, bait, and depth with Jev.
 - [nomanjack/smart-paste](https://github.com/nomanjack/smart-paste) - A Chrome extension that uses Jev choice/score/noul questions to match pasted text to form fields and paste only confident matches.
 - [lahfir/agent-desktop](https://github.com/lahfir/agent-desktop) - Rust-based desktop automation that reads an app's real UI through OS accessibility trees instead of screenshots, with an optional Jev skill for selecting controls and actions without loading the whole UI tree into context.
+- [shhivv/arc-cua](https://github.com/shhivv/arc-cua) - A desktop-automation action layer where Jev picks the next UI operation and target from a dynamically built action space limited to what the current screen actually exposes.
 
 ## Data & Retrieval
 
@@ -143,6 +152,7 @@ Every link below was resolved from its original source tweet/thread and verified
 - [socai-io/jev-social](https://github.com/socai-io/jev-social) - Jev-powered social research across Instagram, TikTok, and LinkedIn with cited, evidenced reports.
 - [harshwasan/jev-retrieval-eval](https://github.com/harshwasan/jev-retrieval-eval) - Reproducible retrieval evaluations comparing Jev and GPT as a second-stage document filter, with cost estimates.
 - [RenaGao/jev-dataops](https://github.com/RenaGao/jev-dataops) - An open-source Jev-powered workbench for streaming data selection, quality eval, and automatic LoRA training/eval.
+- [seanebones-lang/evidencelens](https://github.com/seanebones-lang/evidencelens) - An open-source research build testing Jev for bounded semantic evidence review and human-review triage.
 
 ## Content, Media & Moderation
 
@@ -226,6 +236,14 @@ Not every valuable Jev post ships a repo. These threads carry the architectural 
 - [Yarrow — stress-testing Jev on 48 real corporate-disclosure cases](https://x.com/Yarrow_ai/status/2102226848436645902) - Classification was reliable (48/48) but judgment wasn't: 10/48 false "No"s on unmentioned outcomes, re-running identical inputs changed a field in 8/48 cases, and just reordering input paragraphs flipped the result in 20/48 cases.
 - [Eastwood — Jev loses to Kimi-K2 and fine-tuned Qwen3-14B on SemEval sentiment](https://x.com/Tsj_estwld/status/2102305073888116870) - Across all 10 SemEval-2026 DimABSA ST1 test sets, Jev went 0-10 against one-shot Kimi-K2 Thinking and 3-7 against a fine-tuned Qwen3-14B.
 - [SYNTHLEX — the $200M model that got reproduced in 5 days](https://x.com/SYNTHLEX_/status/2102411667598356656) - Tallies 10,294 stars across 11 independent Jev clones with zero monetization, and argues the real moat isn't the architecture but calibration data — the record pairing a confidence score with what actually happened.
+- [Tuana — Jev vs. tabular foundation models](https://x.com/tuanacelik/status/2102775182834426099) - Jev reads a row as text and predicts from world knowledge without fitting to your data, unlike a tabular foundation model like TabPFN that predicts from the labelled rows you pass in.
+- [Matt Gunter — "classification is not a decision"](https://x.com/MatthewEGunter/status/2102877302237626804) - A five-point architectural critique: Jev's fixed option set, inability to reframe or fetch missing facts, and silent failure mode make a growing graph of Jev-gated if-statements tech debt, not a decision system.
+- [void — the threshold is part of the prompt](https://x.com/sakevoid/status/2102896039678382177) - Ran 154 shell commands through 12 phrasings of the same danger-check question: accuracy stayed 94.8-100% throughout, but the decision threshold that matched a 0.5 cutoff moved from 0.14 to 0.68 depending on phrasing.
+- [BourneS — 164 tracked Jev/decision-model projects](https://x.com/bourneshao/status/2102691360222351798) - A census of the six-day-old clone race: the winning pattern splits the agent (small model for text, Jev for the operation/element), and Jev-1.13 itself scores 0.045 ECE on 2,000 decisions, with 93.7% accuracy on the 24.5% of cases it's 90%+ confident on.
+- [Prasenjit Sarkar — the Redis-in-front-of-Postgres pattern](https://x.com/stretchcloud/status/2102676090066231705) - Jev triaged 384 news headlines in 24.9s for $0.19 versus Claude Opus 5 completing 4 of 384 for 77 cents — roughly 390x cheaper per headline — framed as agent orchestration catching up to a pattern every layer of computing eventually grows.
+- [Prasenjit Sarkar — code review's real bottleneck isn't the model](https://x.com/stretchcloud/status/2102894026219266265) - Jev scanned a 0.5M-line codebase for 12,938 findings in two minutes for $0.89, feeding an always-on Claude Opus 5.5 refactor loop; argues Jev's structurally-typed output removes the triage cost that dominates AI code-scanning economics.
+- [WquGuru — Jev vs. its clones, head to head](https://x.com/wquguru/status/2102781168437567638) - On the same 20-question set: Jev 20/20, AnyJev (Qwen3-4B) 95%, Laya 65%, djev (Mac, 4-bit) 35% — and reversing djev's option order flipped 19 of its 20 answers.
+- [生き残るための3K — the MacBook Air that beat the cloud](https://x.com/ikinokore_3k/status/2102593158681186391) - Konstantin Gladych's team raced local Laya against cloud Jev at Tetris on a 16GB MacBook Air and clocked Laya 11x faster, though replies note the gap may be round-trip latency rather than raw speed.
 
 ## Contributing
 
