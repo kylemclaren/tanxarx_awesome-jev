@@ -155,6 +155,7 @@ Every link below was resolved from its original source tweet/thread and verified
 - [harshwasan/jev-retrieval-eval](https://github.com/harshwasan/jev-retrieval-eval) - Reproducible retrieval evaluations comparing Jev and GPT as a second-stage document filter, with cost estimates.
 - [RenaGao/jev-dataops](https://github.com/RenaGao/jev-dataops) - An open-source Jev-powered workbench for streaming data selection, quality eval, and automatic LoRA training/eval.
 - [seanebones-lang/evidencelens](https://github.com/seanebones-lang/evidencelens) - An open-source research build testing Jev for bounded semantic evidence review and human-review triage.
+- [sedthh/xjevboost](https://github.com/sedthh/xjevboost) - Use larger tabular datasets with Jev by learning which rows and columns to include in each call, reducing token usage through adaptive ensembles.
 
 ## Content, Media & Moderation
 
